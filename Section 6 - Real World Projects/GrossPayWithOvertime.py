@@ -1,9 +1,19 @@
 # Program to give the employee 1.5 times the hourly rate for hours worked above 40 hours. 
 # Here again the program prompts the user for hours and rate per hour to compute gross pay
 
+try:
+    hours = float(input("Enter hours: "))
+except ValueError:
+    print("Please enter a numeric input for hours")
+    quit()
 
-hours = int(input("Enter hours: "))
-rate = int(input("Enter rate: "))
+try:
+    rate = float(input("Enter rate: "))
+except ValueError:
+    print("Please enter a numeric input for rate")
+    quit()
+
+
 overtime = 0
 
 if hours > 40:
