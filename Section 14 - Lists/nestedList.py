@@ -34,6 +34,8 @@ print(my_list)
 
 
 
+
+
 my_list2 = ["a", "b", ["cc", "dd", ["eee", "fff"]], "g", "h"]
 
 for item in my_list2:
