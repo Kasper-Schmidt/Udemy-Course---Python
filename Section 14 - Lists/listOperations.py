@@ -24,7 +24,9 @@ print(list3 * 3)
 
 
 print("----- in keyword -----")
+
 list4 = [1, 2, 3, 4, "a", "b", "c", "d"]
+
 print("a" in list4)
 print(2 in list4)
 print("Test" in list4)
