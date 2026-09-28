@@ -15,40 +15,18 @@ def refactor_position(p_position, p_cipher_type):
 
 
 def caesar_cipher(p_initial_text, p_shift_number, p_cipher_type):
-    pass
-
-
-def encrypt(p_message, p_shift_number):
-    cipher_message = ""
-
-    for char in p_message:
+    final_text = ""
+    if p_cipher_type == "d":
+        p_shift_number *= -1
+    for char in p_initial_text:
         if char in alphabet:
             position = alphabet.index(char)
             new_position = position + p_shift_number
-            while new_position >= 25:
-                new_position = new_position - 26  
-            new_char = alphabet[new_position]
-            cipher_message += new_char
+            new_position = refactor_position(new_position, p_cipher_type)
+            final_text += alphabet[new_position]
         else:
-            cipher_message += char
-    return f"The encoded message is {cipher_message}"
-
-
-def decrypt(p_message, p_shift_number):
-    message = ""
-
-    for char in p_message:
-        if char in alphabet:
-            position = alphabet.index(char)
-            old_position = position - p_shift_number 
-            while old_position < 0:
-                old_position = old_position + 26
-            letter = alphabet[old_position]
-            message += letter
-        else: 
-            message += char
-    
-    return f"The decoded message is: {message}"
+            final_text += char
+    print(f"Here is the {'decode' if p_cipher_type == 'd' else 'encode'}d result: {final_text}")
 
 
 
@@ -59,18 +37,10 @@ while not end_program:
     encrypt_decrypt = input("Type 'E' to encrypt or type 'D' to decrypt:\n").lower()
     message = input("Enter your message?\n").upper()
     shift_number = int(input("Enter the shift number:\n"))
-
-    if encrypt_decrypt == "e":
-        enc_message = encrypt(message, shift_number)
-        print(enc_message)
-    elif encrypt_decrypt == "d":
-        dec_message = decrypt(message, shift_number)
-        print(dec_message)
-    else: 
-        print("Choose E or D")
-
+    caesar_cipher(message, shift_number, encrypt_decrypt)
+    
     restart = input("Type 'Y' if you want to continue, Otherwise type 'Q: ").lower()
-    if restart == 'n':
+    if restart == 'q':
         end_program = True
         print("See you next time")
     else:

@@ -7,7 +7,6 @@ alphabet = [
 message = input("What do you want to encrypt?\n").upper()
 shift_number = int(input("Enter the shift number:\n"))
     
-
 def encrypt(p_message, p_shift_number):
     cipher_message = ""
 
