@@ -7,16 +7,21 @@ student_scores = {
 }
 
 def grade_scores(p_dict):
-    for score in student_scores:
-        if p_dict[score] >= 85:
-            p_dict[score] = "Outstanding"
-        elif 84 >= p_dict[score] >= 65:
-            p_dict[score] = "Good"
-        elif 64 >= p_dict[score] >= 50:
-            p_dict[score] = "Acceptable"
+    student_grades = {}
+
+    for key in p_dict:
+        score = p_dict[key]
+
+        if score >= 85:
+            student_grades[key] = "Outstanding"
+        elif 84 >= score >= 65:
+            student_grades[key] = "Good"
+        elif 64 >= score >= 50: 
+            student_grades[key] = "Acceptable"
         else:
-            p_dict[score] = "Fail"
-    return p_dict
+            student_grades[key] = "Fail"
+            
+    return student_grades
 
 print(grade_scores(student_scores))
         
