@@ -1,6 +1,6 @@
 import random
 import os
-from hangman_stages import hangman_stages
+from Hangman_stages import hangman_stages
 from word_list import word_list
 
 secret_word = random.choice(word_list)
